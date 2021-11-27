@@ -23,8 +23,8 @@
 
 ## 결과물
 
-- 프로젝트 시연영상은 아래 저장소에서 확인하실 수 있습니다. 
-[결과영상]https://github.com/mingzooo/Wanted_React_FE
+- 프로젝트 시연영상은 [링크된-저장소](https://github.com/mingzooo/Wanted_React_FE)에서 확인하실 수 있습니다. 
+
 
 <br >
 <br >
