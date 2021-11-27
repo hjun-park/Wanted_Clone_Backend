@@ -1,0 +1,102 @@
+// 02. 프로젝트의 플로그인 의존성 관리를 위한 설정
+buildscript {
+    ext { // build.gradle에서 사용하는 전역변수를 설정하겠다는 의미
+        springBootVersion = '2.4.2'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.4.2")
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+manifest {
+    attributes 'Main-Class': 'com.example.demo.DemoApplication'
+}
+
+//bootJar {
+//    mainClassName = 'com.example.demo.DemoApplication'
+//}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.options.encoding = 'UTF-8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:19.0.0'
+
+
+    // Spring Boot Starter
+    testImplementation ('org.springframework.boot:spring-boot-starter-test')
+
+    // Lombok
+    implementation ('org.projectlombok:lombok')
+    compileOnly ('org.projectlombok:lombok:1.18.16')
+    annotationProcessor ('org.projectlombok:lombok:1.18.16')
+
+    // DB
+    runtimeOnly ('mysql:mysql-connector-java:8.0.25') //mysql8
+    implementation ('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa') //mysql 5버전의 경우 삭제.
+
+    // Batch
+    compile('org.springframework.boot:spring-boot-starter-batch')
+
+    // Web
+    implementation ('org.springframework.boot:spring-boot-starter-web')
+
+    // Security, Authentication
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    compile(group: 'io.jsonwebtoken', name: 'jjwt', version: '0.7.0')
+    compile('io.jsonwebtoken:jjwt:0.9.0')
+
+    implementation('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    // Spring Security for OAuth2)
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+
+    // bean Validation
+    implementation('org.springframework.boot:spring-boot-starter-validation')
+
+    // test
+    implementation('org.springframework.boot:spring-boot-devtools')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+    // News Crawling
+    implementation('org.jsoup:jsoup:1.14.1')
+
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
