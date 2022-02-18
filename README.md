@@ -5,7 +5,7 @@
 <br >
 
 ## API 명세서
-[API 명세서](https://docs.google.com/spreadsheets/d/1rSiTMdtzv797--5XRRukg2lqC1Q1ojtM8bSyj1ydH0w/edit#gid=1298737800)
+[API 명세서](https://docs.google.com/spreadsheets/d/1wudx4bdvR2f4TBzMqkTnFrm2hjuM9B0-aBQhxvZQAQk/edit?usp=sharing)
 
 
 <br >
